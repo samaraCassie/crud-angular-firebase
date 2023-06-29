@@ -1,0 +1,29 @@
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand px-3" routerLink="/list-product">
+    DashBoard
+  </a>
+  <button class="navbar-toggler collapsed d-md-none" type="button"
+    data-bs-toggle="collapse" data-bs-target="#sidebarMenu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</header>
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+    <nav id="sidebarMenu" class="col-md-2 bg-dark d-md-block collapse">
+      <ul class="nav flex-column min-vh-100">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/add-product" routerLinkActive="active">
+            Adicionar Produto
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/list-product" routerLinkActive="active">
+          Lista de Produtos
+        </a></li>
+      </ul>
+    </nav>
+    <main class="col-md-10">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="pt-3 pb-2 mb-3 border-bottom">
+  <h2 class="h2">Adicionar Contato</h2>
+</div>
+<form [formGroup]="productForm" (ngSubmit)="submitForm()" novalidate>
+  <div class="row">
+    <div class="col-lg-6 col-md-8 col-sm-12">
+      <div class="row">
+
+        <div class="col-md-12 mb-3">
+
+          <label
+
+            [ngClass]="{'text-danger': nome?.touched && nome?.invalid}"
+
+            for="nome" class="form-label">Nome</label>
+
+          <input
+
+            [ngClass]="{'is-invalid': nome?.touched && nome?.invalid, 'is-valid': nome?.touched && nome?.valid}"
+
+            type="text" id="nome" class="form-control" formControlName="nome" required/>
+
+          <!-- errors-->
+
+          <div class="invalid-feedback"><sup>*</sup>Nome obrigatório</div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-12 mb-3">
+
+          <label
+
+            [ngClass]="{'text-danger': preco?.touched && preco?.invalid}"
+
+            for="preco" class="form-label">Idade</label>
+
+          <input
+
+            [ngClass]="{'is-invalid': preco?.touched && preco?.invalid, 'is-valid': preco?.touched && preco?.valid}"
+
+            type="number"
+
+            formControlName="preco"
+
+            class="form-control"
+
+            required
+
+          />
+          <div class="invalid-feedback"><sup>*</sup>Idade obrigatório</div>
+        </div>
+      </div>
+      <div class="row">
+
+        <div class="col-md-12 mb-3">
+
+          <label
+
+            [ngClass]="{'text-danger': descricao?.touched && descricao?.invalid}"
+
+            for="descricao" class="form-label">Telefone:</label>
+
+          <input
+
+            [ngClass]="{'is-invalid': descricao?.touched && descricao?.invalid, 'is-valid': descricao?.touched && descricao?.valid}"
+
+            type="text"
+
+            formControlName="descricao"
+
+            class="form-control"
+
+            required
+
+          />
+          <div class="invalid-feedback"><sup>*</sup>Informe apenas números</div>
+        </div>
+      </div>
+      <div class="form-group text-end">
+
+        <button type="button" class="btn btn-secondary mx-2" (click)="resetForm()">Limpar</button>
+        <button type="submit" class="btn btn-success mx-2" [disabled]="!productForm.valid">Adicionar Contato</button>
+
+      </div>
+    </div>
+  </div>
+</form>
