@@ -1,0 +1,51 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h2 class="h2">Lista de Products</h2>
+  <a routerLink="/add-product" class="btn btn-success" *ngIf="!listEmpty"> Adicionar Product</a>
+</div>
+
+<div class="pricing-header mx-auto">
+
+  <!-- LOADING SPINNER -->
+
+  <div class="loadWrapper" *ngIf="showLoader">
+    <div class="loader"></div>
+  </div>
+
+  <div class="text-center" *ngIf="listEmpty">
+    <p>Nenhum product adicionado ainda</p>
+    <a routerLink="/add-product" class="btn btn-success"> Adicionar Product</a>
+  </div>
+
+  <div class="table-responsive" *ngIf="!listEmpty">
+
+    <table class="table table-bordered">
+
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Preco</th>
+          <th scope="col">Descricao</th>
+          <th class="text-center" scope="col">Editar</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let product of listProducts | paginate: { itemsPerPage: 8, currentPage: page}; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{product.nome}}</td>
+          <td>{{product.preco}}</td>
+          <td>{{product.descricao}}</td>
+          <td class="text-center action-block">
+            <span class="btn btn-outline-primary btn-sm" routerLink="/edit-product/{{product.$key}}">Editar</span>
+            <span class="mx-2 btn btn-outline-danger btn-sm" (click)="deleteProduct(product)">Remover</span>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+    <pagination-controls class="text-end" previousLabel="Anterior" nextLabel="Próximo" (pageChange)="page = $event"></pagination-controls>
+
+  </div>
+</div>
