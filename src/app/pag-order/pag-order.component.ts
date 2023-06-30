@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./pag-order.component.css']
 })
 export class PagOrderComponent {
-
+  tiles:String[]=['1', '2', '3', '4'];
 }

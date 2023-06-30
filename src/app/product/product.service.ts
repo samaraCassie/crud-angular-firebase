@@ -14,8 +14,7 @@ import { Product } from './product';
 
 export class ProductService {
 
-  listaProductsRef: AngularFireList<Product>;
-
+  listProductsRef: AngularFireList<Product>;
   productRef: AngularFireObject<Product>;
 
 
@@ -24,8 +23,7 @@ export class ProductService {
 
     //inicialização dos caminhos ao firebase
 
-    this.listaProductsRef = this.db.list('list-products');
-
+    this.listProductsRef = this.db.list('list-products');
     this.productRef = this.db.object('list-products/' + 0);
 
   }
@@ -36,7 +34,7 @@ export class ProductService {
 
   insertProduct(product: Product) {
 
-    this.listaProductsRef.push({
+    this.listProductsRef.push({
 
       nome: product.nome,
 
@@ -45,9 +43,7 @@ export class ProductService {
       descricao: product.descricao,
 
     });
-
   }
-
 
 
   // Buscar um único Objeto Product pelo seu ID
@@ -66,7 +62,7 @@ export class ProductService {
 
   getProductList(): AngularFireList<Product> {
 
-    return this.listaProductsRef;
+    return this.listProductsRef;
 
   }
 

@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+  <h2 class="h2">Lista de Produto</h2>
+  <a routerLink="/add-product" class="btn btn-success" *ngIf="!listEmpty"> Adicionar Produto</a>
+</div>
+
+<div class="pricing-header mx-auto">
+
+  <!-- LOADING SPINNER -->
+
+  <div class="loadWrapper" *ngIf="showLoader">
+    <div class="loader"></div>
+  </div>
+
+  <div class="text-center" *ngIf="listEmpty">
+    <p>Nenhum produto adicionado ainda</p>
+    <a routerLink="/add-product" class="btn btn-success"> Adicionar Produto</a>
+  </div>
+
+    <mat-grid-list cols="4" [rowHeight]="'60vh'" [gutterSize]="'1%'" style="width: 90%; margin-left: 5%; margin-top: 5%;">
+      <mat-grid-tile *ngFor="let product of listProducts | paginate: { itemsPerPage: 8, currentPage: page}; let i = index">
+        <mat-card class="example-card">
+          <mat-card-header scope="row">y
+            <mat-card-title>{{product.nome}}</mat-card-title>
+            <mat-card-subtitle>R$ {{product.preco}}</mat-card-subtitle>
+          </mat-card-header>
+          <mat-card-content>
+            <p>{{product.descricao}}</p>
+          </mat-card-content>
+          <mat-card-actions>
+            <span class="btn btn-outline-primary btn-sm" routerLink="/edit-product/{{product.$key}}">Editar</span>
+            <span class="mx-2 btn btn-outline-danger btn-sm" (click)="deleteProduct(product)">Remover</span>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+    <pagination-controls class="text-end" previousLabel="Anterior" nextLabel="Próximo" (pageChange)="page = $event"></pagination-controls>
+</div>

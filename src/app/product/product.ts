@@ -1,6 +1,8 @@
 export interface Product {
-  $key?: String;
+
+  $key?: string;
   nome: String;
-  preco: Number;
   descricao: String;
+  preco: Number;
+
 }

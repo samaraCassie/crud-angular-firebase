@@ -1,1 +1,5 @@
-<p>pag-order works!</p>
+<mat-grid-list cols="8" [rowHeight]="'25vh'" [gutterSize]="'1%'" style="width: 90%; margin-left: 5%; margin-top: 5%;">
+  <mat-grid-tile *ngFor="let tile of tiles" [colspan]="8" [rowspan]="1">
+    <app-order></app-order>
+  </mat-grid-tile>
+</mat-grid-list>

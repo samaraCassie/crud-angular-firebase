@@ -52,9 +52,9 @@ export class AddProductComponent implements OnInit{
 
         nome: new FormControl('', Validators.required),
 
-        preco: new FormControl('', Validators.required),
+        descricao: new FormControl('', Validators.required),
 
-        descricao: new FormControl('', [Validators.required,  Validators.pattern('^[0-9]+$')])
+        preco: new FormControl('', Validators.required)
 
       });
 

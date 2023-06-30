@@ -1,0 +1,31 @@
+nav{
+  background-color: rgb(24 24 26);
+  padding: 1% 2%;
+  box-shadow: 2px 2px 8px rgb(5, 7, 12);
+}
+
+.nav-link{
+  color: aliceblue;
+  text-transform: uppercase;
+}
+
+.nav-link:hover{
+  background-color: rgba(0, 0, 0, 0.87);
+  transition: all .2s linear;
+  font-size: 103%;
+}
+main{
+  margin-bottom: 15%;
+}
+footer{
+  background-color: rgb(24 24 26);
+  padding: 3% 2%;
+  box-shadow: 0px -3px 8px rgb(5, 7, 12);
+  color: rgb(58, 57, 57);
+  position: relative;
+  top: 110vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

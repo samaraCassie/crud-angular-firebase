@@ -22,7 +22,7 @@ import { Location } from '@angular/common';
 
 })
 
-export class EditProductComponent implements OnInit{
+export class EditProductComponent implements OnInit {
 
   productForm: FormGroup;
 
@@ -42,7 +42,7 @@ export class EditProductComponent implements OnInit{
 
     private toastr: ToastrService
 
-  ){
+  ) {
 
     this.productForm = this.createForm();
 
@@ -50,7 +50,7 @@ export class EditProductComponent implements OnInit{
 
 
 
-  createForm(){
+  createForm() {
 
     return this.fb.group({
 
@@ -58,7 +58,7 @@ export class EditProductComponent implements OnInit{
 
       preco: new FormControl('', Validators.required),
 
-      descricao: new FormControl('', [Validators.required,  Validators.pattern('^[0-9]+$')])
+      descricao: new FormControl('', Validators.required)
 
     });
 
@@ -66,7 +66,7 @@ export class EditProductComponent implements OnInit{
 
 
 
-  ngOnInit(){
+  ngOnInit() {
 
     const id = this.activeRoute.snapshot.paramMap.get('id');
 
@@ -84,7 +84,7 @@ export class EditProductComponent implements OnInit{
 
 
 
-  submitForm(){
+  submitForm() {
 
     this.productService.updateProduct(this.productForm.value);
 
@@ -98,7 +98,7 @@ export class EditProductComponent implements OnInit{
 
   }
 
-  goBack(){
+  goBack() {
 
     this.location.back();
 
@@ -106,7 +106,7 @@ export class EditProductComponent implements OnInit{
 
 
 
-  get nome(){
+  get nome() {
 
     return this.productForm.get('nome');
 
@@ -114,7 +114,7 @@ export class EditProductComponent implements OnInit{
 
 
 
-  get preco(){
+  get preco() {
 
     return this.productForm.get('preco');
 
@@ -122,7 +122,7 @@ export class EditProductComponent implements OnInit{
 
 
 
-  get descricao(){
+  get descricao() {
 
     return this.productForm.get('descricao');
 
